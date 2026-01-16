@@ -52,5 +52,3 @@ def normalize_train():
 def normalize_test():
     name = "test"
     normalize_data(name)
-
-normalize_train()
