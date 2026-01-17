@@ -1,6 +1,8 @@
 import torch
 import torch.nn as nn
 
+import SE
+
 class CNNArchitecture(nn.Module):
     def __init__(self, input_shape=(128, 128, 32)):
         super().__init__()
@@ -35,6 +37,7 @@ class CNNArchitecture(nn.Module):
             nn.BatchNorm3d(out_channels),
             nn.ReLU(inplace=True),
 
+            SE.SEBlock(out_channels),
             nn.MaxPool3d(kernel_size=2, stride=2),
         )
     
