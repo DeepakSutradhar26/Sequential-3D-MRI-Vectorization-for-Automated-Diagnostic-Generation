@@ -1,11 +1,9 @@
 import torch.nn as nn
 
-import cnn3
-
 class CNN_LSTM(nn.Module):
-    def __init__(self):
+    def __init__(self, cnn : nn.Module):
         super().__init__()
-        self.cnn = cnn3.CNNArchitecture()
+        self.cnn = cnn
 
         self.lstm = nn.LSTM(
             input_size=128,

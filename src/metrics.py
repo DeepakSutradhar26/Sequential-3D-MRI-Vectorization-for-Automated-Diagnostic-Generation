@@ -5,6 +5,7 @@ DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
 BATCH_SIZE = 8
 LEARNING_RATE = 1e-3
 N_EPOCHS = 10
+NUM_WORKERS = 2
 SAVE_MODEL = True
 LOAD_MODEL = False
 CURR_DIR = os.path.abspath(os.path.basename(__file__))
