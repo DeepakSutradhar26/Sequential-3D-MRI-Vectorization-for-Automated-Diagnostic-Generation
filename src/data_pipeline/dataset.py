@@ -3,7 +3,7 @@ import nibabel as nib
 import torch
 import os
 
-import preprocess.prerocessing as p
+from preprocess import prerocessing as p
 
 class MRIDataset(Dataset):
     def __init__(self, samples):
