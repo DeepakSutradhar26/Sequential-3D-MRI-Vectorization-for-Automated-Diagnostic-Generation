@@ -31,4 +31,4 @@ class MRIDataset(Dataset):
         label = 1 if label_name == "HGG" else 0
         y = torch.tensor(label).unsqueeze(0)
 
-        return x, y
+        return x, y.float()
