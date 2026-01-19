@@ -13,7 +13,6 @@ def train_one_epoch(model, loader, optimizer, criterion):
     model.train()
     epoch_loss = 0.0
 
-    num_steps = 0
     for x,y in tqdm(loader, desc="Training", leave=False):
         x = x.to(config.DEVICE)
         y = y.to(config.DEVICE)
@@ -30,7 +29,7 @@ def train_one_epoch(model, loader, optimizer, criterion):
 
         optimizer.step()
 
-    return epoch_loss/(num_steps)
+    return epoch_loss/len(loader) if len(loader) > 0 else 0
 
 def validate(model, loader, criterion):
     model.eval()
@@ -38,7 +37,6 @@ def validate(model, loader, criterion):
     correct = 0
     total = 0
 
-    num_steps = 0
     with torch.no_grad():
         for x,y in tqdm(loader, desc="Validation", leave=False):
             x = x.to(config.DEVICE) #[8, 5, 1, 128, 128, 32]
@@ -59,7 +57,7 @@ def validate(model, loader, criterion):
             total += y.size(0)
     
     acc = correct/total if total > 0 else 0
-    return epoch_loss/(num_steps), acc
+    return epoch_loss/len(loader) if len(loader) > 0 else 0, acc
 
 def plot_accuracy_curve(train_loss, val_loss):
     plt.figure()
