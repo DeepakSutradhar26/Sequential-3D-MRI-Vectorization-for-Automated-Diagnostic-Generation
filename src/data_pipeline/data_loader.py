@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import config
 import os
 
-import data_pipeline.data_download as data_download
+import data_download
 
 pateints = []
 for label in ["HGG", "LGG"]:
