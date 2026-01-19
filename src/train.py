@@ -36,7 +36,7 @@ def train_one_epoch(model, loader, optimizer, criterion):
 
             epoch_loss += loss.item()
 
-    return epoch_loss/(x.shape[0] * x.shape[1])
+    return epoch_loss/(loader.shape[0] * loader.shape[1])
 
 def validate(model, loader, criterion):
     model.eval()
@@ -49,16 +49,19 @@ def validate(model, loader, criterion):
             x = x.to(config.DEVICE) #[8, 5, 1, 128, 128, 32]
             y = y.to(config.DEVICE) #[8, 1]
 
-            preds = model(x)
-            loss = criterion(preds, y)
-            epoch_loss += loss.item()
+            for i in range(x.shape[1]):
+                batch = create_one_batch(x, i)
 
-            preds = (preds > 0.5).float()
-            correct += (preds == y).sum().item()
-            total += y.numel()
+                preds = model(batch)
+                loss = criterion(preds, y)
+                epoch_loss += loss.item()
+
+                preds = (preds > 0.5).float()
+                correct += (preds == y).sum().item()
+                total += y.numel()
     
     acc = correct/total if total > 0 else 0
-    return epoch_loss/len(loader), acc
+    return epoch_loss/(loader.shape[0] * loader.shape[1]), acc
 
 def plot_accuracy_curve(train_loss, val_loss):
     plt.figure()
