@@ -18,12 +18,14 @@ class CNNArchitecture(nn.Module):
             D, H, W = D // 2, H // 2, W // 2
         self.flat_dim = 128 * D * H * W
 
+        self.cnn_input_size = 128
+
         self.final_layer = nn.Sequential(
-            nn.Linear(self.flat_dim, 64),
-            nn.BatchNorm1d(64),
+            nn.Linear(self.flat_dim, self.cnn_input_size),
+            nn.BatchNorm1d(self.cnn_input_size),
             nn.ReLU(),
             nn.Dropout(dropout_rate),
-            nn.Linear(64, 64),
+            nn.Linear(self.cnn_input_size, self.cnn_input_size),
             nn.ReLU(),
         )
 
