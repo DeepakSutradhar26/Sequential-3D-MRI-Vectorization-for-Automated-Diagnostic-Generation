@@ -38,6 +38,9 @@ def validate(model, loader, criterion):
             x = x.to(config.DEVICE)
             y = y.to(config.DEVICE)
 
+            print(x.shape) 
+            print(y.shape)
+
             preds = model(x)
             loss = criterion(preds, y)
             epoch_loss += loss.item()
