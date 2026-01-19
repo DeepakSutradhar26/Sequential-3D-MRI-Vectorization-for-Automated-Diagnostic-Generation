@@ -10,7 +10,9 @@ pateints = []
 for label in ["HGG", "LGG"]:
     data_path = os.path.join(data_download.DATA_FOLDER_PATH, label)
     for p in os.listdir(data_path):
-        pateints.append((label, p))
+        patient_path = os.path.join(data_path, p)
+        if os.path.isdir(patient_path):
+            pateints.append((label, patient_path))
 
 train_ids, test_ids = train_test_split(
     pateints,
