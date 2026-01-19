@@ -8,7 +8,8 @@ class CNN_LSTM(nn.Module):
         self.lstm = nn.LSTM(
             input_size=128,
             hidden_size=128,
-            dropout=0.5,
+            num_layers=2,
+            dropout=0.3,
             batch_first=True,
         )
 

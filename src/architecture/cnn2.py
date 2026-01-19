@@ -36,6 +36,7 @@ class CNNArchitecture(nn.Module):
             nn.BatchNorm3d(out_channels),
             nn.ReLU(inplace=True),
 
+            nn.Dropout3d(0.3),
             nn.MaxPool3d(kernel_size=2, stride=2),
         )
     

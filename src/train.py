@@ -92,7 +92,7 @@ def plot_all_accuracy(all_train_losses, all_val_losses):
     plt.close()
 
 def train_cnn_model(model, name, all_train_losses, all_val_losses):
-    optimizer = NAdam(model.parameters(), lr=config.LEARNING_RATE)
+    optimizer = NAdam(model.parameters(), lr=config.LEARNING_RATE, weight_decay=config.WEIGHT_DECAY)
     criterion = nn.BCELoss()
 
     train_losses = []

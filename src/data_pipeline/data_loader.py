@@ -33,6 +33,6 @@ val_loader = DataLoader(
     MRIDataset(test_ids),
     batch_size = config.BATCH_SIZE,
     num_workers = config.NUM_WORKERS,
-    shuffle = True,
+    shuffle = False,
     pin_memory = True,
 )
