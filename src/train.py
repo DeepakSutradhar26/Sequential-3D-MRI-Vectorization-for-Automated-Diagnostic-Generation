@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 
 import config
-import models.CNN_LSTM as CNN_LSTM
+from models.CNN_LSTM import CNN_LSTM
 from data_pipeline.data_loader import train_loader, val_loader
 
 def train_one_epoch(model, loader, optimizer, criterion):
