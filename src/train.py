@@ -56,6 +56,8 @@ def validate(model, loader, criterion):
                 batch = create_one_batch(x, i)
                 num_steps += 1
 
+                print(batch.shape)
+
                 preds = model(batch)
                 preds_over_time.append(preds)
 
@@ -64,7 +66,7 @@ def validate(model, loader, criterion):
 
             preds = torch.mean(torch.stack(preds_over_time), dim=0)
             preds = (preds > 0.5).float()
-            
+
             correct += (preds == y).sum().item()
             total += y.size(0)
     
