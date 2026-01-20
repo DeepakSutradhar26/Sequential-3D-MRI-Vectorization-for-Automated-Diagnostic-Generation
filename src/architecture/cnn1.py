@@ -22,6 +22,7 @@ class CNNArchitecture(nn.Module):
         self.cnn_input_size = 128
 
         self.final_layer = nn.Sequential(
+            nn.Dropout(self.dropout_rate),
             nn.Linear(self.flat_dim, self.cnn_input_size),
             nn.BatchNorm1d(self.cnn_input_size),
             nn.ReLU(),

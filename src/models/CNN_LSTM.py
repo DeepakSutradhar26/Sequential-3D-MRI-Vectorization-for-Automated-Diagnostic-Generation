@@ -19,13 +19,13 @@ class CNN_LSTM(nn.Module):
         B, T, C, H, W, D = x.shape
 
         x = x.view(B * T, C, H, W, D) 
-        x = self.cnn(x) # (B*T, 128)
+        x = self.cnn(x)
 
         x = x.view(B, T, 128)
-        x, _ = self.lstm(x) # (B, T, 128)
+        x, _ = self.lstm(x)
 
-        x = x[:, -1, :] # (B, 128)
-        x = self.final_layer(x) #(B, 1)
+        x = x[:, -1, :]
+        x = self.final_layer(x)
 
         return x
 
