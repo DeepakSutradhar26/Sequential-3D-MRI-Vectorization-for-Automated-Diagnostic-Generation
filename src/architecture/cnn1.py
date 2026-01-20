@@ -34,7 +34,6 @@ class CNNArchitecture(nn.Module):
             nn.Conv3d(in_channels, out_channels, kernel_size=3, padding=1),
             nn.BatchNorm3d(out_channels),
             nn.ReLU(inplace=True),
-            nn.Dropout3d(self.dropout_rate),
             nn.MaxPool3d(kernel_size=2, stride=2),
         )
     
