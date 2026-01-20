@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class CNNArchitecture(nn.Module):
-    def __init__(self, input_shape=(1, 128, 128, 64)):
+    def __init__(self):
         super().__init__()
 
         self.conv_blocks = nn.Sequential(
