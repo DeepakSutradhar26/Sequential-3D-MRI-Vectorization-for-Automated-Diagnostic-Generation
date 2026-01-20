@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 
 class CNNArchitecture(nn.Module):
-    def __init__(self, input_shape=(1, 128, 128, 64), dropout_rate=0.3):
+    def __init__(self, input_shape=(1, 128, 128, 32), dropout_rate=0.3):
         super().__init__()
         self.dropout_rate = dropout_rate
 
