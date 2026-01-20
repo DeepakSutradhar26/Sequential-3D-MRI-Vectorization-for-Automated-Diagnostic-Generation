@@ -36,3 +36,8 @@ val_loader = DataLoader(
     shuffle = False,
     pin_memory = True,
 )
+
+for x, y in train_loader:
+    print("x shape:", x.shape)
+    print("y shape:", y.shape)
+    break  # only print first batch
