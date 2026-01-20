@@ -1,7 +1,7 @@
 import torch
 
 DEVICE = "cuda" if torch.cuda.is_available() else "cpu"
-BATCH_SIZE = 8
+BATCH_SIZE = 16
 LEARNING_RATE = 1e-4
 WEIGHT_DECAY = 1e-5
 N_EPOCHS = 20
