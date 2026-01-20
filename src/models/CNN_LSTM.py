@@ -20,6 +20,7 @@ class CNN_LSTM(nn.Module):
 
         x = x.view(B * T, C, H, W, D) 
         x = self.cnn(x)
+        x = x.detach()
 
         x = x.view(B, T, 128)
         x, _ = self.lstm(x)
