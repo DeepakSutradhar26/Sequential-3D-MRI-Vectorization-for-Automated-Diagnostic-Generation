@@ -26,7 +26,8 @@ train_loader = DataLoader(
     batch_size = config.BATCH_SIZE,
     num_workers = config.NUM_WORKERS,
     shuffle = True,
-    pin_memory = True,
+    pin_memory = False,
+    persistent_workers=False,
 )
 
 val_loader = DataLoader(
@@ -34,5 +35,6 @@ val_loader = DataLoader(
     batch_size = config.BATCH_SIZE,
     num_workers = config.NUM_WORKERS,
     shuffle = False,
-    pin_memory = True,
+    pin_memory = False,
+    persistent_workers=False,
 )

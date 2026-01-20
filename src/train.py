@@ -168,9 +168,9 @@ def main():
     all_val_losses = []
     all_acc = []
 
-    model1 = CNN_LSTM(CNN1).to(config.DEVICE)
-    op1 = train_cnn_model(model1, "CNN1", all_train_losses, all_val_losses, all_acc)
-    reset_torch(model1, op1)
+    # model1 = CNN_LSTM(CNN1).to(config.DEVICE)
+    # op1 = train_cnn_model(model1, "CNN1", all_train_losses, all_val_losses, all_acc)
+    # reset_torch(model1, op1)
 
     model2 = CNN_LSTM(CNN2).to(config.DEVICE)
     op2 = train_cnn_model(model2, "CNN2", all_train_losses, all_val_losses, all_acc)
