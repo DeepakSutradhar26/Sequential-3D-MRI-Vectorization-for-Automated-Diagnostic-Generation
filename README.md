@@ -33,9 +33,8 @@ The preprocessing pipeline is designed to standardize multi-modal 3D MRI volumes
 ### 2. Intensity Normalization
 All MRI volumes are normalized independently using **min–max normalization**:
 
-\[
-x' = \frac{x - \min(x)}{\max(x) - \min(x) + \epsilon}
-\]
+x' = (x - min(x)) / (max(x) - min(x) + ε)
+
 
 - Ensures voxel values lie in the range **[0, 1]**
 - Prevents numerical instability using a small epsilon (`1e-8`)
