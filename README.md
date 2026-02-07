@@ -1,4 +1,4 @@
-# 3D CNN-LSTM Hybrid for Volumetric Sequence Classification with Attention-based Feature Enhancement
+# sMRI-Based Binary Classification using CNN-LSTM <img width="2872" height="210" alt="image" src="https://github.com/user-attachments/assets/713efdf5-016e-41ad-b810-acfd24c63e1b" />
 
 ## Project Overview
 This project implements a deep learning framework for classifying 3D volumetric sequences, such as medical imaging data, by combining **3D Convolutional Neural Networks (CNNs)** with **Long Short-Term Memory (LSTM)** networks. The architecture incorporates **Squeeze-and-Excitation (SE) blocks** to enhance important channel-wise features, capturing both spatial and temporal dependencies in the data.  
